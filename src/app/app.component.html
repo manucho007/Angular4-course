@@ -1,7 +1,7 @@
 <div class="col-md-6">
   <h2>Listado de Notas</h2>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let n of myNotes">{{n.id}}. {{n.title}}</li>
+    <li (click)="viewNote(n)" class="list-group-item" *ngFor="let n of myNotes">{{n.id}}. {{n.title}}</li>
   </ul>
   <a class="btn btn-primary btn-block" (click)="addNote()">Nueva nota</a>
 </div>
@@ -9,14 +9,18 @@
   <h2>Nueva Nota</h2>
   <input class="form-control" type="text" placeholder="Titulo de la nota" [(ngModel)]="note.title">
   <br />
-  <textarea class="form-control" placeholder="Cuerpo de la nota" [(ngModel)]="note.body"></textarea>
+  <textarea class="form-control" placeholder="Cuerpo de la nota" [(ngModel)]="note.description"></textarea>
   <hr/>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <a class="btn btn-default btn-block" (click)="cancel()">Cancelar</a>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <a class="btn btn-primary btn-block" (click)="createNote()">Agregar</a>
+    </div>
+    <div class="col-md-4">
+      <!--With Ngif we decide when to show the delete button  -->
+      <a class="btn btn-danger btn-block" *ngIf="editing" (click)="deleteNote()">Eliminar</a>
     </div>
   </div>
 </div>
