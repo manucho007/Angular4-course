@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 @Component({
   selector: 'app-root',
@@ -17,17 +17,12 @@ export class AppComponent {
   //   {id:6, title:"Note 6", description:"Description for note 6"},
   // ];
     //It's no longer FirebaselistObservable
-    //*********MAUUU Ayudame con esto************
   // myNotes: AngularFireList<any[]>;
   myNotes:any;
   constructor(public afDB: AngularFireDatabase){
-    // this.getNotes()
-    //     .subscribe(
-    //       notas=>{
-    //         this.myNotes=notas;
-    //       }
-    //     )
-    this.myNotes = afDB.list('/notes').valueChanges().subscribe(console.log);
+      afDB.list('/notas').valueChanges().subscribe(notas=>{
+            this.myNotes=notas;
+          });
   }
   note={id:null, title:null, description:null};
   show_form = false;
