@@ -1,9 +1,10 @@
 <div class="col-md-6">
-  <h2>Listado de Notas</h2>
+  <a class="btn btn-primary" (click)="syncronize()">Sync</a>
+  <h2>Notes list</h2>
   <ul class="list-group">
     <li (click)="viewNote(n)" class="list-group-item" *ngFor="let n of myNotes">{{n.id}}. {{n.title}}</li>
   </ul>
-  <a class="btn btn-primary btn-block" (click)="addNote()">Nueva nota</a>
+  <a class="btn btn-primary btn-block" (click)="addNote()">New note</a>
 </div>
 <div class="col-md-6" *ngIf="show_form">
   <h2>Nueva Nota</h2>
@@ -13,14 +14,14 @@
   <hr/>
   <div class="row">
     <div class="col-md-4">
-      <a class="btn btn-default btn-block" (click)="cancel()">Cancelar</a>
+      <a class="btn btn-default btn-block" (click)="cancel()">Cancel</a>
     </div>
     <div class="col-md-4">
-      <a class="btn btn-primary btn-block" (click)="createNote()">Agregar</a>
+      <a class="btn btn-primary btn-block" (click)="createNote()">Add</a>
     </div>
     <div class="col-md-4">
       <!--With Ngif we decide when to show the delete button  -->
-      <a class="btn btn-danger btn-block" *ngIf="editing" (click)="deleteNote()">Eliminar</a>
+      <a class="btn btn-danger btn-block" *ngIf="editing" (click)="removeNote()">Delete</a>
     </div>
   </div>
 </div>
