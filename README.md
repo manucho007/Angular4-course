@@ -1,5 +1,5 @@
 # Simple note keeper with Firebase
-
+From https://www.youtube.com/playlist?list=PLYPjmy5IVxT8-9vxaY4BHRB9wlzUgPzD1
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
 
 ## Development server
